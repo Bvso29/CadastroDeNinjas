@@ -3,6 +3,8 @@ package dev.java10x.CadastroDeNinjas.Missoes;
 import dev.java10x.CadastroDeNinjas.Ninjas.NinjaModel;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "tb_missoes")
 public class MissoesModel {
@@ -11,12 +13,12 @@ public class MissoesModel {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     private String nome;
 
     private String dificuldade;
 
-    private NinjaModel ninja;
+//    @OneToMany - Uma missão tem vários Ninjas - mappedBy mapeia a coluna
+    private List<NinjaModel> ninja;
 
     public MissoesModel() {
     }

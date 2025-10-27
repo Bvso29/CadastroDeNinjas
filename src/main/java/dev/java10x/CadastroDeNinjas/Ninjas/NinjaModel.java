@@ -15,10 +15,18 @@ public class NinjaModel {
 //    Valores de incrementação
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nome;
+
     private String email;
+
     private int idade;
-    private List<MissoesModel> missoes;
+
+//    @ManyToOne - um ninja tem uma Unica Missão
+    @ManyToOne
+//    Adiciona uma coluna com Missoes_id FK
+    @JoinColumn(name = "missoes_id") // Foreing Key / Chave Estrangeira
+    private MissoesModel missoes;
 
     public NinjaModel() {
     }
