@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 // Atra´ves da dependencia JPA - Faço da classe uma entidade (JPA JAVA PERSISTENCE API)
 @Entity
 //Crio tabela
-@Table(name = "tb_cadastro_de_ninja")
+@Table(name = "tb_cadastro")
 @Data // Cria o Getter e Setter - Lombock
 @NoArgsConstructor // Cria o Construtor sem argumento - Lombock
 @AllArgsConstructor // Cria o Construtor com todos argumento - Lombock
@@ -18,15 +18,21 @@ public class NinjaModel {
     @Id
 //    Valores de incrementação
     @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
+    @Column(name = "nome")
     private String nome;
 
 //    Para colunas que são Sensiveis e Unicos
     @Column(unique = true)
     private String email;
 
+    @Column( name = "idade")
     private int idade;
+
+    @Column(name = "img_url")
+    private String imgUrl;
 
 //    @ManyToOne - um ninja tem uma Unica Missão
     @ManyToOne
