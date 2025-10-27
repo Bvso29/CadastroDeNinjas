@@ -6,8 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 // Atra´ves da dependencia JPA - Faço da classe uma entidade (JPA JAVA PERSISTENCE API)
 @Entity
 //Crio tabela
