@@ -24,6 +24,8 @@ public class NinjaModel {
 
     private String nome;
 
+//    Para colunas que são Sensiveis e Unicos
+    @Column(unique = true)
     private String email;
 
     private int idade;
