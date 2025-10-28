@@ -27,6 +27,7 @@ public class MissoesModel {
     private String rank;
 
 //    @OneToMany - Uma missão tem vários Ninjas - mappedBy mapeia a coluna
+    @OneToMany
     private List<NinjaModel> ninja;
 
 }
