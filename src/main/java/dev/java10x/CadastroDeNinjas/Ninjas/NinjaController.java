@@ -27,8 +27,9 @@ public class NinjaController {
 
     // Adicinar Ninja
     @PostMapping("/criar")
-    public String criarNinja() {
-        return "Ninja Criado";
+//    Precisa do RequestBody pq no corpo da requisição ele envia um JSON
+    public NinjaModel criarNinja(@RequestBody NinjaModel ninja) {
+        return ninjaService.criarNinja(ninja);
     }
 
     // Mostar todos os Ninjas
@@ -39,8 +40,9 @@ public class NinjaController {
 
     // Procurar Ninja por ID
     @GetMapping("/listar/{id}")
-    public String mostrarPorId() {
-        return "Mostrar ninjas por ID";
+//    Precisa do PathVariable pq é uma variavel de caminhio (ID)
+    public NinjaModel mostrarPorId(@PathVariable long id) {
+        return ninjaService.listarNinjasId(id);
     }
 
     // Alterar dados dos Ninjas
@@ -56,4 +58,3 @@ public class NinjaController {
     }
 
 }
-
