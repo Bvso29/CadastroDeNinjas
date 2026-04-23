@@ -14,9 +14,12 @@ public class NinjaService {
     //    Inicia uma Instância do repositório
     private NinjaRepository ninjaRepository;
 
+    private NinjaMapper ninjaMapper;
+
     //    Iniciliza a dependencia (Construtor)
-    public NinjaService(NinjaRepository ninjaRepository) {
+    public NinjaService(NinjaRepository ninjaRepository, NinjaMapper ninjaMapper) {
         this.ninjaRepository = ninjaRepository;
+        this.ninjaMapper = ninjaMapper;
     }
 
     //    Lista todos os Ninjas - ultiliza o meto do JPA - vindo do NinjaRepository
@@ -32,8 +35,10 @@ public class NinjaService {
     }
 
 //    Criar nono Ninja
-    public NinjaModel criarNinja(NinjaModel ninja){
-        return ninjaRepository.save(ninja);
+    public NinjaDTO criarNinja(NinjaDTO ninjaDTO){
+        NinjaModel ninja = ninjaMapper.map(ninjaDTO);
+        ninja = ninjaRepository.save(ninja);
+        return ninjaMapper.map(ninja);
     }
 
 //    Alterar Ninja

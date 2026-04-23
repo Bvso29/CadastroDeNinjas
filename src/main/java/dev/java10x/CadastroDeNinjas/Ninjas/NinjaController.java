@@ -28,8 +28,8 @@ public class NinjaController {
     // Adicinar Ninja
     @PostMapping("/criar")
 //    Precisa do RequestBody pq no corpo da requisição ele envia um JSON
-    public NinjaModel criarNinja(@RequestBody NinjaModel ninja) {
-        return ninjaService.criarNinja(ninja);
+    public NinjaDTO criarNinja(@RequestBody NinjaDTO ninjaDTO) {
+        return ninjaService.criarNinja(ninjaDTO);
     }
 
     // Mostar todos os Ninjas
