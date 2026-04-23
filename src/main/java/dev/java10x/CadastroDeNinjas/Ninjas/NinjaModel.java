@@ -1,43 +1,39 @@
 package dev.java10x.CadastroDeNinjas.Ninjas;
-
 import dev.java10x.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-// Atra´ves da dependencia JPA - Faço da classe uma entidade (JPA JAVA PERSISTENCE API)
 @Entity
-//Crio tabela
 @Table(name = "tb_cadastro")
-@Data // Cria o Getter e Setter - Lombock
-@NoArgsConstructor // Cria o Construtor sem argumento - Lombock
-@AllArgsConstructor // Cria o Construtor com todos argumento - Lombock
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class NinjaModel {
 
     @Id
-//    Valores de incrementação
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id")
+    private long id;
 
-    @Column(name = "nome")
+    @Column (name = "nome")
     private String nome;
 
-//    Para colunas que são Sensiveis e Unicos
     @Column(unique = true)
     private String email;
 
-    @Column( name = "idade")
-    private int idade;
-
-    @Column(name = "img_url")
+    @Column (name = "img_url")
     private String imgUrl;
 
-//    @ManyToOne - um ninja tem uma Unica Missão
+    @Column (name = "rank")
+    private String rank;
+
+    @Column (name = "idade")
+    private int idade;
+
     @ManyToOne
-//    Adiciona uma coluna com Missoes_id FK
-    @JoinColumn(name = "missoes_id") // Foreing Key / Chave Estrangeira
+    @JoinColumn(name = "missoes_id")
     private MissoesModel missoes;
 
 }
